@@ -1,143 +1,173 @@
-# Hands-on Lab: Getting Started with GitHub
+# Peer-Graded Assignment: Part A - Building a dashboard with IBM Cognos Analytics 
+**Estimated time needed:** 45 minutes
 
-&lt;img src&#x3D;&quot;https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DS0105EN-SkillsNetwork/labs/Module2/images/SN_web_lightmode.png&quot;&gt;
+In this assignment, you will create some visualizations and add them to dashboards using IBM Cognos Analytics.
 
-&lt;b&gt;Effort:&lt;/b&gt; 20 min
+## Software Used in this Assignment
+In this assignment you will use the free trial version of IBM Cognos Analytics Tool.
 
-In this lab, you will get started with GitHub by creating a GitHub account and project and adding a file to it using its Web interface.
+## Prerequisites
 
-## Objectives
-After completing this lab, you will be able to:
-
-1. Describe GitHub
-2. Create a GitHub account
-3. Add a project and repo
-4. Edit and create a file
-5. Upload a file and Commit
-
-## GitHub Overview
-First, let us introduce you to GitHub. GitHub is a collection of folders and files. It is a Git repository hosting service, but it adds many of its own features. Git is a command-line tool. It hosts and maintains a server via command line. GitHub provides this Git server and a Web-based graphical interface for you. It also provides access control and collaboration features, such as wikis and basic task management tools for every project. In addition, GitHub provides cloud storage for source code, supports all popular programming languages, and streamlines the iteration process. GitHub includes a free plan for individual developers and hosting open source projects.
-
-## Exercise 1: Creating a GitHub Account
-
-Please use the following steps to create an account on GitHub:
-
-Step 1: Create an account: https://github.com/join 
-
-&lt;b&gt;NOTE:&lt;/b&gt; If you already have a GitHub account, you can skip this step and simply log in to your account.
-
-Step 2: Provide the necessary details to create an account as shown below:
-
-&lt;img src&#x3D;&quot;https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DS0105EN-SkillsNetwork/labs/Module2/images/Create_account.PNG&quot; alt&#x3D;&quot;Create your account.&quot; width&#x3D;&quot;600&quot;&gt;
-
-Click &#x60;Create account&#x60;.
-
-Step 3: Click &#x60;Verify&#x60; to verify the account and click &#x60;Done&#x60;. 
-
-&lt;img src&#x3D;&quot;https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DS0105EN-SkillsNetwork/labs/Module2/images/Verify.PNG&quot; alt&#x3D;&quot;Verify your account.&quot; width&#x3D;&quot;600&quot;&gt;
-
-Step 4: After verification, click &#x60;Join a Free Plan&#x60;.
-
-&lt;img src&#x3D;&quot;https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DS0105EN-SkillsNetwork/labs/Module2/images/JoinFreePlan.PNG&quot; alt&#x3D;&quot;Join a free plan.&quot; width&#x3D;&quot;600&quot;&gt;
-
-Step 5: Select the details as shown below and click &#x60;Complete setup&#x60;.
-
-&lt;img src&#x3D;&quot;https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DS0105EN-SkillsNetwork/labs/Module2/images/CompleteSetup.PNG&quot; alt&#x3D;&quot;Complete setup.&quot; width&#x3D;&quot;600&quot;&gt;
+You need access to Cognos Analytics. This &lt;a href&#x3D;&quot;https://author-ide.skills.network/render?token&#x3D;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtZF9pbnN0cnVjdGlvbnNfdXJsIjoiaHR0cHM6Ly9jZi1jb3Vyc2VzLWRhdGEuczMudXMuY2xvdWQtb2JqZWN0LXN0b3JhZ2UuYXBwZG9tYWluLmNsb3VkL0lCTVNraWxsc05ldHdvcmstRFYwMTMwRU4tQ291cnNlcmEvbGFicy9fL2xhYnMvdjIvSGFuZHMtb25fTGFiJTNBX0dldHRpbmdfU3RhcnRlZF93aXRoX0NvZ25vc19BbmFseXRpYy5tZCIsInRvb2xfdHlwZSI6Imluc3RydWN0aW9uYWwtbGFiIiwiYWRtaW4iOmZhbHNlLCJpYXQiOjE3MDA2NzQ2OTF9.-8k2wp67jKc8W0wbRLVZq2evpcEZKKpnsxu-RSs4iCQ&quot; target&#x3D;&quot;_blank&quot;&gt;Cognos lab &lt;/a&gt; will guide to get your access to Cognos Analytics, and also get you started with how to use it to analyze the data.
 
 
-Step 6: Go to your email, find the verification email from GitHub, and click the &#x60;Verify your email&#x60; button or link in that email to verify. 
+## Dataset Used in this Assignment
+The dataset you are going to use in this assignment comes from the following source: https://stackoverflow.blog/2019/04/09/the-2019-stack-overflow-developer-survey-results-are-in/ under a **[ODbL: Open Database License](https://opendatacommons.org/licenses/odbl/1-0/)**.
 
-&lt;b&gt;NOTE:&lt;/b&gt; If you do not receive the verification email, click &#x60;Resend verification email&#x60;.
+We are using a modified subset of that dataset for the assignment, so to follow the assigment instructions successfully, please use the dataset provided with the assignment, rather than the dataset from the original source.
 
-&lt;img src&#x3D;&quot;https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DS0105EN-SkillsNetwork/labs/Module2/images/VerifyEmailAddress.PNG&quot; alt&#x3D;&quot;Verify your email address.&quot; width&#x3D;&quot;600&quot;&gt;
+## Guidelines for the Submission
+1. Download the 2 files &lt;a href&#x3D;&quot;https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DA0321EN-SkillsNetwork/LargeData/m5_survey_data_demographics.csv&quot; target&#x3D;&quot;_blank&quot;&gt;m5_survey_data_demographics.csv&lt;/a&gt; and &lt;a href&#x3D;&quot;https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DA0321EN-SkillsNetwork/LargeData/m5_survey_data_technologies_normalised.csv&quot; target&#x3D;&quot;_blank&quot;&gt;m5_survey_data_technologies_normalised.csv&lt;/a&gt;. Upload these 2 CSV files as data assets to your project Cognos Analytics.
 
-Email is verified.
+2. Create 3 dashboards **(3 separate tabs under a single dashboard)** as follows:
 
-&lt;img src&#x3D;&quot;https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DS0105EN-SkillsNetwork/labs/Module2/images/EmailVerfied.png&quot; alt&#x3D;&quot;Email verified.&quot; width&#x3D;&quot;600&quot;&gt;
+    - One dashboard using the 2 x 2 rectangle areas tabbed template - rename this dashboard tab to **Current Technology Usage**.
 
-## Exercise 2: Adding a project and repo
+    - One dashboard using the 2 x 2 rectangle areas tabbed template - rename this dashboard tab to **Future Technology Trend**.
 
-Step 1: Click the &#x60;+&#x60; symbol and click &#x60;New repository&#x60;.
+    - One dashboard using the 2 x 2 rectangle areas tabbed template - rename this dashboard tab to **Demographics**.
 
-&lt;img src&#x3D;&quot;https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DS0105EN-SkillsNetwork/labs/Module2/images/Create_repo.png&quot; alt&#x3D;&quot;New repository.&quot; width&#x3D;&quot;600&quot;&gt;
+    &lt;img src&#x3D;&quot;https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DA0321EN-SkillsNetwork/labs/module%205/Peer%20Graded%20Assignment%20-%20%20Building%20a%20dashboard%20with%20Cognos%20Dashboard%20Embedded/images/2.png&quot; width&#x3D;&quot;533&quot; height&#x3D;&quot;300&quot;&gt;
+        
+&lt;br&gt;
 
-Step 2: Provide a name for the repository and initialize it with the empty &#x60;README.md&#x60; file.
+3. On the **Current Technology Usage** dashboard tab, use the data asset **m5_survey_data_technologies_normalised.csv** and capture the following metrics as visualizations: 
+    
+    - In the first rectangle **(Panel 1)**:
+        - Capture **Top 10 LanguageWorkedWith**. 
+        - Visualize as a **Bar chart**.
+        - Utilize **Bars**, **Length**, **Color** fields of Bar chart.
+        - Include **Show value labels** feature.
+        - Include a proper **Chart title**.  
+        
+    - In the second rectangle **(Panel 2)**:
+        - Capture **Top 10 DatabaseWorkedWith**.
+        - Visualize as a **Column chart**.
+        - Utilize **Bars**, **Length**, **Color** fields of Column chart.
+        - Include **Show value labels** feature.
+        - Include a proper **Chart title**.
 
-&lt;img src&#x3D;&quot;https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DS0105EN-SkillsNetwork/labs/Module2/images/Repo_details.png&quot; alt&#x3D;&quot;Repo details.&quot; width&#x3D;&quot;600&quot;&gt;
-
-Click &#x60;Create repository&#x60;.
-
-Now, you will be redirected to the repository you have created.
-
-Let us start editing the repository.
-
-## Exercise 3: Create and edit a file
-
-### Exercise 3a: Edit a file 
-
-Step 1: Once the repository is created, the root folder of your repository is listed by default, and has just one file, &#x60;ReadMe.md&#x60;. Click the pencil icon to edit the file.
-
-&lt;img src&#x3D;&quot;https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DS0105EN-SkillsNetwork/labs/Module2/images/Edit_file.png&quot; alt&#x3D;&quot;Edit file.&quot; width&#x3D;&quot;600&quot;&gt;
-
-Step 2: Add some text to the file.
-
-&lt;img src&#x3D;&quot;https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DS0105EN-SkillsNetwork/labs/Module2/images/Add_text.png&quot; alt&#x3D;&quot;Add some text.&quot; width&#x3D;&quot;600&quot;&gt;
-
-Step 3: Scroll down the page after adding the text and click &#x60;Commit Changes&#x60;.
-
-&lt;img src&#x3D;&quot;https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DS0105EN-SkillsNetwork/images/Commit.png&quot; alt&#x3D;&quot;Commit changes.&quot; width&#x3D;&quot;600&quot;&gt;
-
-Now, check that your file is edited with the new text.
-
-### Exercise 3b: Create a new file
-
-Step 1: Click the repository name to return to the master branch, like in this testrepo.
-
-&lt;img src&#x3D;&quot;https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DS0105EN-SkillsNetwork/labs/Module2/images/Add_file1.png&quot; alt&#x3D;&quot;Add file1.&quot; width&#x3D;&quot;600&quot;&gt;
-
-Step 2: Click &#x60;Add file&#x60; and select &#x60;Create New file&#x60; to create a file in the repository.
-
-&lt;img src&#x3D;&quot;https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DS0105EN-SkillsNetwork/labs/Module2/images/Create_new_file.png&quot; alt&#x3D;&quot;Create new file.&quot; width&#x3D;&quot;600&quot;&gt;
-
-Step 3: Provide the file name and the extension of the file. For example, firstpython.py and add the lines.
-
-&lt;img src&#x3D;&quot;https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DS0105EN-SkillsNetwork/labs/Module2/images/Add_filename.png&quot; alt&#x3D;&quot;Add filename.&quot; width&#x3D;&quot;600&quot;&gt;
-
-Step 4: Scroll down the page after adding the text. &#x60;Add description&#x60; of the file (optional) and click &#x60;Commit new file&#x60;.
-
-&lt;img src&#x3D;&quot;https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DS0105EN-SkillsNetwork/images/commit_newfile.png&quot; alt&#x3D;&quot;Commit new file.&quot; width&#x3D;&quot;600&quot;&gt;
-
-Step 5: Your file is now added to your repository, and the repository listing shows when the file was added and changed.
-
-## Exercise 4: Upload a file &amp; Commit
-
-Step 1: Click &#x60;Add file&#x60; and select &#x60;Upload files&#x60; to upload a file (any .txt, .ipynb, .png file) in the repository from the local computer.
-
-&lt;img src&#x3D;&quot;https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DS0105EN-SkillsNetwork/labs/Module2/images/upload.png&quot; alt&#x3D;&quot;Upload files.&quot; width&#x3D;&quot;600&quot;&gt;
-
-Step 2: Click &#x60;choose your files&#x60; and select any files from your computer.
-
-&lt;img src&#x3D;&quot;https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DS0105EN-SkillsNetwork/images/select_files.png&quot; alt&#x3D;&quot;Select files.&quot; width&#x3D;&quot;600&quot;&gt;
-
-Step 3: Once the file finishes uploading, click &#x60;Commit changes&#x60;.
-
-&lt;img src&#x3D;&quot;https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DS0105EN-SkillsNetwork/labs/Module2/images/commit_upload.png&quot; alt&#x3D;&quot;Commit uplaoded files.&quot; width&#x3D;&quot;600&quot;&gt;
-
-Step 4: Now, your file is uploaded in the repository.
-
-&lt;img src&#x3D;&quot;https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DS0105EN-SkillsNetwork/labs/Module2/images/check_change.png&quot; alt&#x3D;&quot;Check change.&quot; width&#x3D;&quot;600&quot;&gt;
+    
+    - In the third rectangle **(Panel 3)**:
+        - Capture **PlatformWorkedWith**. 
+        - Visualize as a **Word cloud chart**.
+        - Utilize **Words**, **Size**, **Color** fields of Word cloud chart.
+        - Include a proper **Chart title**.
+		
 
 
-## Summary
-In this document, you have learned how to create a new repository, add a new file, edit a file, upload a file in a repository, and commit the changes.
+    
+    - In the fourth rectangle **(Panel 4)**:
+        - Capture **Top 10 WebFrameWorkedWith**.
+        - Visualize as a **Hierarchy bubble chart**.
+        - Utilize **Bubbles**, **Size**, **Color** fields of Hierarchy bubble chart.
+        - Include a proper **Chart title**.
+
+&lt;br&gt;
+
+4. On the **Future Technology Trend** dashboard tab, use the data asset **m5_survey_data_technologies_normalised.csv** and capture the following metrics as visualizations: 
+    
+    - In the first rectangle **(Panel 1)**:
+        - Capture **Top 10 LanguageDesireNextYear**.
+        - Visualize as a **Bar chart**.
+        - Utilize **Bars**, **Length**, **Color** fields of Bar chart.
+        - Include **Show value labels** feature.
+        - Include a proper **Chart title**.
+    
+    - In the second rectangle **(Panel 2)**:
+        - Capture **Top 10 DatabaseDesireNextYear**.
+        - Visualize as a **Column chart**.
+        - Utilize **Bars**, **Length**, **Color** fields of Column chart.
+        - Include **Show value labels** feature.
+        - Include a proper **Chart title**.
+    
+    - In the third rectangle **(Panel 3)**: 
+        - capture **PlatformDesireNextYear**.
+        - Visualize as a **Tree map chart**.
+        - Utilize **Area hierarchy**, **Size**, **Heat** fields of Tree map chart.
+        - Include **Contrast label color** feature.
+        - Include a proper **Chart title**.
+    
+    - In the fourth rectangle **(Panel 4)**:
+        - Capture **Top 10 WebFrameDesireNextYear**.
+        - Visualize as a **Hierarchy bubble chart**.
+        - Utilize **Bubbles**, **Size**, **Color** fields of Hierarchy bubble chart.
+        - Include a proper **Chart title**.
+
+&lt;br&gt;
+
+5. On the **Demographics** dashboard tab, use the data asset **m5_survey_data_demographics.csv** and capture the following metrics as visualizations:
+
+   - Use **Filters for this tab** feature to filter out entries of other types except **Man** and **Woman** from the data point **Gender**.
+    
+    - In the first rectangle **(Panel 1)**:
+        - Capture **Respondent classified by Gender**.
+        - Visualize as a **Pie chart**.
+        - Utilize **Segments**, **Size** fields of Pie chart.
+        - Include **Dispay %** feature.
+        - Include a proper **Chart title**.
+    
+    - In the second rectangle **(Panel 2)**:
+        - Capture **Respondent Count for Countries**. 
+        - Visualize as a **Map chart**.
+        - Utilize **Regions-Locations**, **Regions-Location color** fields of Map chart.
+        - Include a proper **Chart title**.
+    
+    - In the third rectangle **(Panel 3)**: 
+        - Capture **Respondent Count by Age**.
+        - Visualize as a **Line chart**.
+        - Utilize **x-axis**, **y-axis** fields of Line chart.
+        - Include **Show value labels** feature.
+        - Include **Show markers** feature.
+        - Include a proper **Chart title**.
+    
+    - In the fourth rectangle **(Panel 4)**:
+        - Capture **Respondent Count by Gender, classified by Formal Education Level**.
+        - Visualize as a **Stacked bar chart**.
+        - Utilize **Bars**, **Length**, **Color** fields of Stacked bar chart.
+        - Include **Show value labels** feature.
+        - Include a proper **Chart title**.
+
+&lt;br&gt;
+
+6. To generate the GitHub link for the dashboard, please follow the instructions provided below:
+    
+    - On the application toolbar of your **dashboard page**, click **Share** icon.
+	
+		&lt;i&lt;img src&#x3D;&quot;https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DA0321EN-SkillsNetwork/labs/module%205/Peer%20Graded%20Assignment%20-%20%20Building%20a%20dashboard%20with%20Cognos%20Dashboard%20Embedded/images/6.1_new.png&quot; height&#x3D;&quot;500/&quot;&gt;		
+    &lt;br&gt;
+
+    - Navigate to the **Export tab**, choose **Landscape** orientation, and click the **Export** button.
+
+		&lt;i&lt;img src&#x3D;&quot;https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DA0321EN-SkillsNetwork/labs/module%205/Peer%20Graded%20Assignment%20-%20%20Building%20a%20dashboard%20with%20Cognos%20Dashboard%20Embedded/images/6.2_new.png&quot; height&#x3D;&quot;500/&quot;&gt;		
+    &lt;br&gt;
+	
+
+    - To save your dashboard as PDF, select Destination as **Save as PDF**, and click **Save**.
+	
+	  &lt;img src&#x3D;&quot;https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-DA0321EN-SkillsNetwork/labs/module%205/Peer%20Graded%20Assignment%20-%20%20Building%20a%20dashboard%20with%20Cognos%20Dashboard%20Embedded/images/6.3_new.png&quot; height&#x3D;&quot;500/&quot;&gt;
+
+
+   - Later upload the PDF file to GitHub by following the instructions in the reading &lt;a href&#x3D;&quot;https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMDeveloperSkillsNetwork-DS0105EN-SkillsNetwork/labs/Module2/GitHub1_Getting_Started.md.html?origin&#x3D;www.coursera.org&quot;&gt;Getting Started with GitHub &lt;/a&gt;.
+   
+	
+   - Further in  the MySubmission tab of the assignment paste the GitHub  link of the Dashboard in the URL  textbox.
+
+## Grading Information
+For your assignment to be graded in a subsequent step in this module, you will be required to submit the permanent link of read-only view of the dashboard you got in Task 6.
+
+&lt;ins&gt;The **main grading criteria** will be:&lt;/ins&gt;
+- Have you provided GitHub link which opens your valid Cognos dashboard?
+- Have the correct tabs been created?
+- Have you created the required number of visualizations for each tab of the dashboard?
+- Have you captured the correct metrics, chart types, chart features and titles for each visualization?
+- Are the results correct?
+
+&lt;ins&gt;You **will not be judged** on:&lt;/ins&gt;
+- Your English language, including spelling or grammatical mistakes.
 
 ## Author(s)
-&lt;h4&gt; Romeo Kienzler &lt;h4/&gt;
-&lt;h4&gt; Malika Singla &lt;h4/&gt;
-
-### Other Contributor(s) 
-Rav Ahuja
+- [Sandip Saha Joy](https://www.linkedin.com/in/sandipsahajoy/)
 
 
-## &lt;h3 align&#x3D;&quot;center&quot;&gt; © IBM Corporation 2020. All rights reserved. &lt;h3/&gt;</textarea>
-
+## &lt;h3 align&#x3D;&quot;center&quot;&gt; © IBM Corporation 2023. All rights reserved. &lt;h3/&gt;
